@@ -1,0 +1,117 @@
+.major-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 55px;
+    top: -70px;
+    position: absolute;
+}
+.major-box {
+    position: relative;
+    width: 230px;
+    height: 167px;
+    background: #FBFBFB;
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin: 180px 72px 30px 72px;
+    padding-top: 80px;
+}
+.major-button {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 163px;
+    height: 47px;
+
+    background: #5E4FC1;
+    border-radius: 18px;
+    margin: 0 34px;
+    bottom: -29px;
+}
+.major-location {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #332821;
+    width: 230px;
+    text-align: center;
+}
+.major-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.major-info {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    margin-left: 18px;
+}
+.major-temp {
+    display: flex;
+    flex-direction: row;
+    /* align-items: baseline; */
+}
+.major-temp-num {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight:bold;
+    font-size: 64px;
+    line-height: 77px;
+    color: #332821;
+}
+.major-temp-unit {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 22px;
+    color: #332821;
+}
+.major-button-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    color: white
+}
+.major-time {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(51, 40, 33, 0.5);
+    margin-top: -8px;
+}
+
+.major-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 70px;
+    margin-right: 18px;
+    margin-top: 22px;
+}
+.major-tag-item {
+    background: rgba(212, 66, 111, 0.5);
+    border-radius: 20px;
+    margin: 0 5px;
+    width: 70px;
+    height: 16px;
+    margin-bottom: 4px;
+}
+.major-tag-text {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    transform: scale(0.8);
+}

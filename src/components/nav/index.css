@@ -1,0 +1,9 @@
+.nav {
+    position: absolute;
+    width: 343px;
+    height: 64px;
+    left: 16px;
+    bottom: 20px;
+    background: #FBFBFB;
+    border-radius: 20px;
+}

@@ -1,21 +1,12 @@
-.app {
-  height: 844px;
-  width: 407px;
-  left: 297px;
-  top: 103px;
-  border-radius: 50px;
-  background: linear-gradient(166.91deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
-  border: 1px solid #FFFFFF;
-  box-sizing: border-box;
-  backdrop-filter: blur(10px);
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('./assets/AlegreyaSans-Bold-4.ttf');
 }
-
-.container {
+.app {
   width: 375px;
   height: 812px;
-  margin: 16px;
   background: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
-  border-radius: 50px;
+  /* border-radius: 40px; */
   position: relative;
   overflow-x: hidden;
 }
