@@ -1,23 +1,29 @@
 import './index.css'
-export default () => {
-    const tag = [{name: '强风', color: `rgba(212, 66, 111, 0.5)`, width: `72px`}, {name: '多云', color: `rgba(106, 117, 186, 0.5)`, width: `50px`}]
+import { getTime } from '../../util'
+export default (props) => {
+    const { location, weather } = props
+    const [id, city = '--', province = "--" ] = location || []
+    const { temp = "", text = "", windDir = "" } = weather || {}
+    const tag = [{name: windDir, color: `rgba(212, 66, 111, 0.5)`, width: `72px`}, {name: text, color: `rgba(106, 117, 186, 0.5)`, width: `50px`}]
     return <div className="major-box">
         <img src={"https://s3.bmp.ovh/imgs/2022/04/11/28da5e75730d747f.png"} className="major-image" />
-        <div className='major-location'>杭州市, 浙江省</div>
+        <div className='major-location'>{`${city}, ${province}`}</div>
         <div className='major-content'>
             <div className='major-info'>
                 <div className='major-temp'>
-                    <div className='major-temp-num'>15</div>
-                    <div className='major-temp-unit'>°C</div>
+                    {temp && <div className='major-temp-num'>{temp}</div>}
+                    {temp && <div className='major-temp-unit'>°C</div>}
                 </div>
 
-                <div className='major-time'>周日, 11 am</div>
+                <div className='major-time'>{getTime()}</div>
             </div>
             <div className='major-tag'>
                 {
                     tag.map((item, index) => {
                         const { name, width ,color} = item;
-                        return <div key={index} className="major-tag-item" style={{width, backgroundColor: color}}><div className="major-tag-text">{name}</div></div>
+                        if(name){
+                            return <div key={index} className="major-tag-item" style={{width, backgroundColor: color}}><div className="major-tag-text">{name}</div></div>
+                        }
                     })
                 }
             </div>

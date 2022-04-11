@@ -1,19 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
 
 import Circles from './components/circles'
 import Nav from './components/nav'
 import Minor from './components/minor'
 import Major from './components/major'
+import Logo from './components/logo'
+
+import { getLocation, getWeatherNow } from './service'
+import { useAsync } from './hooks/useAsync'
 
 function App() {
+  const { value: location, setValue: setLocation } = useAsync(getLocation)
+  const { value: weatherNow, setValue: setWeatherNow, pending, error } = useAsync(getWeatherNow)
+
   return (
     <div className="app">
         <Circles />
-        <img src={logo} className="app-logo" alt="logo" />
-        <Major />
-        <Minor />
+        <Logo />
+        <Major location={location} weather={weatherNow} />
+        <Minor weather={weatherNow} />
         <Nav />
     </div>
   );

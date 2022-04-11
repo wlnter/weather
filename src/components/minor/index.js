@@ -1,21 +1,23 @@
 import './index.css'
-import humidity from '../icon/humidity.svg'
-import precip from '../icon/precip.svg'
-import speed from '../icon/windSpeed.svg'
+import humidityIcon from '../../assets/humidity.svg'
+import precipIcon from '../../assets/precip.svg'
+import speedIcon from '../../assets/windSpeed.svg'
 import Item from './item'
-export default () => {
+export default (props) => {
+    const { weather } = props
+    const { windSpeed = "--", humidity = "--", precip = "--" } = weather || {}
     const data = [{
-        icon: precip,
+        icon: precipIcon,
         name: "降水量",
-        data: "6 %"
+        data: `${precip}%`
     },{
-        icon: humidity,
+        icon: humidityIcon,
         name: "湿度",
-        data: "90 %"
+        data: `${humidity}%`
     },{
-        icon: speed,
+        icon: speedIcon,
         name: "风速",
-        data: "19 km/h"
+        data: `${windSpeed} km/h`
     }]
     return <div className="minor-container">
         {

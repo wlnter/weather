@@ -54,6 +54,7 @@
 .major-temp {
     display: flex;
     flex-direction: row;
+    height: 77px;
     /* align-items: baseline; */
 }
 .major-temp-num {
