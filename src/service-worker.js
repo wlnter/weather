@@ -87,7 +87,8 @@ self.addEventListener('message', (event) => {
 registerRoute(
   // match qweather/amap api
   ({ request }) =>{
-    return request.url.indexOf("amap.com") > -1 || request.url.indexOf("qweather.com") > -1
+    const host = request.url.host;
+    return host.indexOf("amap.com") > -1 || host.indexOf("qweather.com") > -1
   },
   new NetworkFirst()
 );
