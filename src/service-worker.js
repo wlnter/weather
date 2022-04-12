@@ -67,7 +67,7 @@ registerRoute(
 // );
 registerRoute(
   /\.(jpe?g|png|svg)/,
-  CacheFirst({
+  new CacheFirst({
     plugins: [
       new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 })
     ],
