@@ -9,6 +9,9 @@
   /* border-radius: 40px; */
   position: relative;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
 }
 
 .app-logo {

@@ -18,6 +18,7 @@ function App() {
     <div className="app">
         <Circles />
         <Logo />
+        <div style={{display: "flex", flex: 1}}></div>
         <Major location={location} weather={weatherNow} />
         <Minor weather={weatherNow} />
         <Nav />
