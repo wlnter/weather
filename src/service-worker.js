@@ -13,7 +13,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
-import { CacheWrapper, Router } from "./worker";
+import { CacheWrapper, Router, strategyFactory } from "./worker";
 
 clientsClaim();
 
@@ -82,15 +82,6 @@ const imageCache = new CacheWrapper({
     maxAgeSeconds: 7 * 24 * 60 * 60,
   },
 });
-// 实例化 apiCache 对象
-const apiCache = new CacheWrapper({
-  cacheName: "api-cache",
-  expireOptions: {
-    // api缓存 1 小时
-    maxAgeSeconds: 1 * 60 * 60,
-  },
-});
-
 router.registerRoute(/\.(jpe?g|png|svg)$/, async (request) => {
   // 优先读取本地缓存中的图片
   // 如果本地无缓存图片/缓存过期/读取缓存出错，则 response 为空
@@ -108,4 +99,9 @@ router.registerRoute(/\.(jpe?g|png|svg)$/, async (request) => {
   // 返回资源
   return response;
 });
-
+router.registerRoute(
+  /\/index\.(html|css|js)$/,
+  strategyFactory("cacheFirst")
+);
+const ruler = (url) => url.indexOf('amap.com') > -1 || url.indexOf('qweather.com') > -1
+router.registerRoute(ruler, strategyFactory("networkFirst"));
