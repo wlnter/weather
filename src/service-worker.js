@@ -72,7 +72,6 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
-
 const router = new Router();
 // 实例化 imageCache 对象
 const imageCache = new CacheWrapper({
@@ -83,7 +82,7 @@ const imageCache = new CacheWrapper({
     maxAgeSeconds: 7 * 24 * 60 * 60,
   },
 });
-// 实例化 imageCache 对象
+// 实例化 apiCache 对象
 const apiCache = new CacheWrapper({
   cacheName: "api-cache",
   expireOptions: {
@@ -92,7 +91,7 @@ const apiCache = new CacheWrapper({
   },
 });
 
-router.registerRoute(/\.(jpe?g|png)$/, async (request) => {
+router.registerRoute(/\.(jpe?g|png|svg)$/, async (request) => {
   // 优先读取本地缓存中的图片
   // 如果本地无缓存图片/缓存过期/读取缓存出错，则 response 为空
   let response = await imageCache.get(request).catch(() => {});
@@ -110,18 +109,3 @@ router.registerRoute(/\.(jpe?g|png)$/, async (request) => {
   return response;
 });
 
-// router.registerRoute(/\.(qweather|amap).com$/, async (request) => {
-//   let response = await imageCache.get(request).catch(() => {});
-//   if (response) {
-//     return response;
-//   }
-//   // 如果本地尚未缓存或者缓存过期，则发起网络请求获取最新图片资源
-//   response = await fetch(request.clone());
-//   // 如果请求成功，则更新缓存
-//   // 更新缓存过程无需阻塞进程
-//   if (response.ok) {
-//     imageCache.set(request, response.clone());
-//   }
-//   // 返回资源
-//   return response;
-// });
