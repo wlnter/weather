@@ -11,7 +11,7 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  min-height: 620px;
 }
 
 .app-logo {
