@@ -10,23 +10,23 @@ import {
 } from "./service";
 
 export default () => {
-  const [ location, setLocation ] = useState([101210106, "杭州", "浙江省"])
+  const [ location, setLocation ] = useState([])
   const [ weather, setWeather ] = useState({})
   const [ hourForecast, setHourForecast] = useState([])
   const [ dayForecast, setDayForecast] = useState([]);
 
   useEffect(()=>{
     getLocation()
-      .then(setLocation)
-      .catch(err => {})
-      .finally(()=>{
-        getWeatherNow(location[0])
+      .then((location) => {
+        setLocation(location);
+        const cityId = location[0]
+        getWeatherNow(cityId)
           .then(setWeather)
           .catch((err) => {});
-        getForecast24h(location[0])
+        getForecast24h(cityId)
           .then(setHourForecast)
           .catch((err) => {});
-        getForecast7d(location[0])
+        getForecast7d(cityId)
           .then(setDayForecast)
           .catch((err) => {});
       })
