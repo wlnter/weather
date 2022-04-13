@@ -12,7 +12,7 @@ export default (props) => {
         <Temperature
           size="mini"
           num={range[1]}
-          styles={{ marginLeft: "8px", color: "rgba(51, 40, 33, 0.5)" }}
+          styles={{ color: "rgba(51, 40, 33, 0.5)" }}
         />
       </div>
     </div>

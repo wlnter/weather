@@ -16,6 +16,8 @@
 .range {
   display: flex;
   flex-direction: row;
+  width: 60px;
+  justify-content: space-between;
 }
 .icon {
   width: 50px;
