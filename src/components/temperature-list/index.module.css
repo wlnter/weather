@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 20px;
+  justify-content: space-between;
+}
+.wrapper {
+  width: 90px;
+  height: 109px;
+  background: white;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 6px 0 #ECECEC
+}
+
+.hour {
+  position: absolute;
+  top: 80px;
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(51, 40, 33, 0.5);
+}

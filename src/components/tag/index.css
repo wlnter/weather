@@ -1,0 +1,26 @@
+.forecast-tag{
+  height: 34px;
+  padding: 0 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.forecast-tag-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px
+}
+.forecast-tag-text {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+}
+.tag-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+}

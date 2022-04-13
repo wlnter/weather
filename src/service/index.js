@@ -40,3 +40,7 @@ export const getWeatherNow = async () => {
         console.log(e)
     }
 }
+
+export const getForecast24h = async () => {
+    
+}

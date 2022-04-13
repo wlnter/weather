@@ -1,0 +1,55 @@
+.forecast-app {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  position: relative;
+  background-color: white;
+}
+.back-arrow {
+  margin-top: 65px;
+  margin-left: 20px;
+  width: 24px;
+  height:24px
+}
+.weather-icon {
+  position: absolute;
+  top: 40px;
+  right: 16px;
+  width: 100px;
+  height: 100px
+}
+.location {
+  margin-left: 22px;
+  margin-top: 40px
+}
+.location-text {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #332821;
+}
+.temp{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: text-top
+}
+.temp-num {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 115px;
+  color: #332821;
+}
+.temp-unit {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #332821;
+  /* margin-top: 28px; */
+}
