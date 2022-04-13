@@ -1,6 +1,6 @@
 {
-  "name": "mWeather",
-  "version": "0.1.0",
+  "name": "weather",
+  "version": "0.2.0",
   "private": true,
   "homepage": ".",
   "dependencies": {
