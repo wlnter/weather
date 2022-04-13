@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home.js'
 import Forecast from './pages/forecast.js'
 import {
@@ -33,7 +33,7 @@ export default () => {
   }, [])
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/"
@@ -51,6 +51,6 @@ export default () => {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
