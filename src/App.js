@@ -24,9 +24,7 @@ export default () => {
           .then(setWeather)
           .catch((err) => {});
         getForecast24h(location[0])
-          .then((data) => {
-            setHourForecast(data)
-          })
+          .then(setHourForecast)
           .catch((err) => {});
         getForecast7d(location[0])
           .then(setDayForecast)
