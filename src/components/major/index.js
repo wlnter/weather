@@ -6,14 +6,14 @@ import Temperature from '../temperature'
 export default (props) => {
     const { location, weather } = props
     const [id, city = '--', province = "--" ] = location || []
-    const { temp = "", text = "", windDir = "" } = weather || {}
+    const { temp, text = "", windDir = "" } = weather || {}
     const tag = [{name: windDir, color: `rgba(212, 66, 111, 0.5)`, width: `72px`}, {name: text, color: `rgba(106, 117, 186, 0.5)`, width: `50px`}]
     
     const navigate = useNavigate();
 
     return (
       <div className={styles["major-box"]}>
-        <img src={getIcon(text)} className={styles["major-image"]} />
+        {text && <img src={getIcon(text)} className={styles["major-image"]} />}
         <div className={styles["major-location"]}>{`${city}, ${province}`}</div>
         <div className={styles["major-content"]}>
           <div className={styles["major-info"]}>

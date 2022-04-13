@@ -8,7 +8,6 @@ import Major from "../components/major";
 import Logo from "../components/logo";
 
 export default (props) => {
-
   return (
     <div className={styles.home}>
       <Circles />
