@@ -12,8 +12,9 @@ import AreaChart from '../components/area-chart';
 const tempList = [{num: 12, hour: "10am"}, {num: 14, hour: "11am"}, {num: 10, hour: '12am'}]
                 
 export default (props) => {
-  const [id, city, province] = props.location
-  const { temp, text, windDir, windSpeed, humidity, precip } = props.weather
+  const { location, weather, hourForecast = [], dayForecast } = props
+  const [id, city, province] = location
+  const { temp, text, windDir, windSpeed, humidity, precip } = weather
 
   const navigate = useNavigate();
   return (
@@ -31,12 +32,12 @@ export default (props) => {
         <div className={styles["location-text"]}>{province || "--"}</div>
       </div>
       <Temperature size="large" num={temp} styles={{ marginLeft: "20px" }} />
-      <Tags weather={props.weather} />
+      <Tags weather={weather} />
       <div style={{ width: "20px", height: "20px" }} />
-      <AreaChart data={props.hourForecast} />
-      <TemperatureList data={props.hourForecast.slice(0, 3)} />
+      <AreaChart data={hourForecast} />
+      <TemperatureList data={hourForecast.slice(0, 3)} />
       <div style={{ width: "20px", height: "20px" }} />
-      <ForecastList data={props.dayForecast} />
+      <ForecastList data={dayForecast} />
     </div>
   );
 }

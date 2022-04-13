@@ -65,14 +65,6 @@ registerRoute(
     ],
   })
 );
-// registerRoute(
-//   /\.(jpe?g|png|svg)/,
-//   new CacheFirst({
-//     plugins: [
-//       new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 })
-//     ],
-//   })
-// );
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
@@ -91,16 +83,18 @@ registerRoute(
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/24h") > -1,
   new CacheFirst({
+    cacheName: '24h',
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 }),
+      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 })
     ],
   })
 );
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/7d") > -1,
   new CacheFirst({
+    cacheName: '7d',
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
+      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 })
     ],
   })
 );
