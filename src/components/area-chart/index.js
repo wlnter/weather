@@ -33,7 +33,7 @@ export default (props)=> {
   return (
     <AreaChart
       width={375}
-      height={150}
+      height={110}
       data={props.data}
       margin={{
         top: 5,
