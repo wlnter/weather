@@ -1,29 +1,13 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/home.js'
+import Forecast from './pages/forecast.js'
 
-import Circles from './components/circles'
-import Nav from './components/nav'
-import Minor from './components/minor'
-import Major from './components/major'
-import Logo from './components/logo'
-
-import { getLocation, getWeatherNow } from './service'
-import { useAsync } from './hooks/useAsync'
-
-function App() {
-  const { value: location, setValue: setLocation } = useAsync(getLocation)
-  const { value: weatherNow, setValue: setWeatherNow, pending, error } = useAsync(getWeatherNow)
-
+export default () => {
   return (
-    <div className="app">
-        <Circles />
-        <Logo />
-        <div style={{display: "flex", flex: 1}}></div>
-        <Major location={location} weather={weatherNow} />
-        <Minor weather={weatherNow} />
-        <Nav />
-    </div>
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/forecast" element={<Forecast />} />
+    </Routes>
   );
 }
-
-export default App;
