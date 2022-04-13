@@ -32,10 +32,10 @@ export default (props) => {
       <Temperature size="large" num={temp} styles={{ marginLeft: "20px" }} />
       <Tags weather={props.weather} />
       <div style={{ width: "20px", height: "20px" }} />
-      <TemperatureList data={tempList} />
+      <TemperatureList data={props.hourForecast.slice(0, 3)} />
       {/* <ReactECharts option={option} /> */}
       <div style={{ width: "20px", height: "20px" }} />
-      <ForecastList data={props.forecast} />
+      <ForecastList data={props.dayForecast} />
     </div>
   );
 }

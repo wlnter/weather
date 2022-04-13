@@ -3,12 +3,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home.js'
 import Forecast from './pages/forecast.js'
 import './App.css'
-import { getForecast7d, getLocation, getWeatherNow } from "./service";
+import {
+  getForecast7d,
+  getLocation,
+  getWeatherNow,
+  getForecast24h,
+} from "./service";
 
 export default () => {
   const [ location, setLocation ] = useState([101210106, "杭州", "浙江省"])
   const [ weather, setWeather ] = useState({})
-  const [ forecast, setForecast] = useState([])
+  const [ hourForecast, setHourForecast] = useState([])
+  const [ dayForecast, setDayForecast] = useState([]);
 
   useEffect(()=>{
     getLocation()
@@ -19,8 +25,13 @@ export default () => {
         getWeatherNow(location[0])
           .then(setWeather)
           .catch((err) => {});
+        getForecast24h(location[0])
+          .then((data) => {
+            setHourForecast(data)
+          })
+          .catch((err) => {});
         getForecast7d(location[0])
-          .then(setForecast)
+          .then(setDayForecast)
           .catch((err) => {});
       })
   }, [])
@@ -38,7 +49,8 @@ export default () => {
             <Forecast
               location={location}
               weather={weather}
-              forecast={forecast}
+              dayForecast={dayForecast}
+              hourForecast={hourForecast}
             />
           }
         />

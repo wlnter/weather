@@ -4,11 +4,13 @@ export const getDay = (now) => {
     const day = week[now.getDay()];
     return day
 }
-export const getTime = () => {
-    const now = new Date()
+export const getHour = (now) => {
+    now = now || new Date();
     const day = getDay(now);
     const hour = now.getHours();
-    return `${day}, ${hour <= 12 ? hour : hour - 12 } ${hour <= 12 ? 'am' : 'pm'}`
+    return `${hour <= 12 ? hour : hour - 12} ${
+      hour <= 12 ? "am" : "pm"
+    }`;
 }
 
 const weatherArr = ["晴", "云", "风", "雨", "雪", "雷"];

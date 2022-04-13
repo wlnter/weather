@@ -1,5 +1,6 @@
+
 import { WEB_API_KEY, AMAP_API_KEY } from "../const";
-import { getDay, getIcon } from '../util'
+import { getDay, getIcon, getHour } from "../util";
 
 export const getLocation = async () => {
     try{
@@ -42,8 +43,28 @@ export const getWeatherNow = async (location) => {
     }
 }
 
-export const getForecast24h = async () => {
-
+export const getForecast24h = async (location) => {
+    try {
+      const response = await fetch(
+        `https://api.qweather.com/v7/weather/24h?location=${location}&key=${WEB_API_KEY}`
+      );
+      const res = await response.json();
+      if (res.code === "200") {
+        const data = res.hourly;
+        const ret = data.map((item, index) => {
+          const { fxTime, temp } = item;
+          return {
+            hour: getHour(new Date(fxTime)),
+            num: temp,
+          };
+        });
+        return ret
+      } else {
+        throw new Error("qweather api error");
+      }
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 export const getForecast7d = async (location) => {

@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { getIcon, getTime } from '../../util'
+import { getIcon, getHour, getDay } from '../../util'
 import { useNavigate } from "react-router-dom";
 import Temperature from '../temperature'
 
@@ -18,7 +18,7 @@ export default (props) => {
         <div className={styles["major-content"]}>
           <div className={styles["major-info"]}>
             <Temperature num={temp} size={"medium"} />
-            <div className={styles["major-time"]}>{getTime()}</div>
+            <div className={styles["major-time"]}>{`${getDay()}, ${getHour()}`}</div>
           </div>
           <div className={styles["major-tag"]}>
             {tag.map((item, index) => {
