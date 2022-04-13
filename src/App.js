@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home.js'
 import Forecast from './pages/forecast.js'
-import './App.css'
 import {
   getForecast7d,
   getLocation,
@@ -21,7 +20,6 @@ export default () => {
       .then(setLocation)
       .catch(err => {})
       .finally(()=>{
-        console.log('finally')
         getWeatherNow(location[0])
           .then(setWeather)
           .catch((err) => {});
