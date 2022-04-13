@@ -50,9 +50,8 @@ export default (props)=> {
       />
       <XAxis
         dataKey="hour"
-        type="category"
-        height={30}
         tick={<CustomizedAxisTick />}
+        axisLine={false}
         tickLine={false}
       />
     </AreaChart>
