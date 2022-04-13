@@ -2,7 +2,7 @@
   font-family: 'Alegreya Sans';
   src: url('../assets/AlegreyaSans-Bold-4.ttf');
 }
-.app {
+.home {
   width: 375px;
   height: 100vh;
   background: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
@@ -14,10 +14,4 @@
   min-height: 620px;
 }
 
-.app-logo {
-  margin-top: 50px;
-  margin-left: 16px;
-  height: 60px;
-  width: 60px;
-  pointer-events: none;
-}
+

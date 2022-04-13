@@ -1,4 +1,4 @@
-import './forecast.css'
+import styles from './forecast.module.css'
 import back from '../assets/back-arrow.svg'
 import { useNavigate } from "react-router-dom";
 import Tags from '../components/tag'
@@ -80,21 +80,18 @@ export default (props) => {
 
   const navigate = useNavigate();
   return (
-    <div className="forecast-app">
+    <div className={styles["forecast-app"]}>
       <img
         onClick={() => {
           navigate("/");
         }}
         src={back}
-        className="back-arrow"
+        className={styles["back-arrow"]}
       />
-      {text && <img
-        src={getIcon(text)}
-        className="weather-icon"
-      />}
-      <div className="location">
-        <div className="location-text">{`${city},`}</div>
-        <div className="location-text">{province}</div>
+      {text && <img src={getIcon(text)} className={styles["weather-icon"]} />}
+      <div className={styles.location}>
+        <div className={styles["location-text"]}>{`${city},`}</div>
+        <div className={styles["location-text"]}>{province}</div>
       </div>
       <Temperature size="large" num={temp} styles={{ marginLeft: "20px" }} />
       <Tags weather={props.weather} />

@@ -1,0 +1,7 @@
+.logo {
+  margin-top: 50px;
+  margin-left: 16px;
+  height: 60px;
+  width: 60px;
+  pointer-events: none;
+}

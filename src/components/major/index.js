@@ -1,6 +1,7 @@
 import './index.css'
-import { getTime } from '../../util'
+import { getIcon, getTime } from '../../util'
 import { useNavigate } from "react-router-dom";
+import Temperature from '../temperature'
 
 export default (props) => {
     const { location, weather } = props
@@ -13,17 +14,13 @@ export default (props) => {
     return (
       <div className="major-box">
         <img
-          src={"https://s3.bmp.ovh/imgs/2022/04/11/28da5e75730d747f.png"}
+          src={getIcon(text)}
           className="major-image"
         />
         <div className="major-location">{`${city}, ${province}`}</div>
         <div className="major-content">
           <div className="major-info">
-            <div className="major-temp">
-              {temp && <div className="major-temp-num">{temp}</div>}
-              {temp && <div className="major-temp-unit">°C</div>}
-            </div>
-
+            <Temperature num={temp} size={'medium'} />
             <div className="major-time">{getTime()}</div>
           </div>
           <div className="major-tag">
