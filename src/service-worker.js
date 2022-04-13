@@ -85,21 +85,22 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 
 registerRoute(
-  // match qweather/amap api
-  ({ request }) =>{
-    console.log(request)
-  },
+  ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/now") > -1,
   new NetworkFirst()
 );
-
-self.addEventListener("install", () => {
-  console.log("service worker 安装成功");
-});
-
-self.addEventListener("activate", () => {
-  console.log("service worker 激活成功");
-});
-
-self.addEventListener("fetch", (event) => {
-  console.log("service worker 抓取请求成功: " + event.request.url);
-});
+registerRoute(
+  ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/24h") > -1,
+  new CacheFirst({
+    plugins: [
+      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 }),
+    ],
+  })
+);
+registerRoute(
+  ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/7d") > -1,
+  new CacheFirst({
+    plugins: [
+      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
+    ],
+  })
+);
