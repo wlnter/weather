@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/home.js'
 import Forecast from './pages/forecast.js'
-
+import './App.css'
 import { getForecast7d, getLocation, getWeatherNow } from "./service";
 
 export default () => {

@@ -1,4 +1,4 @@
-import './index.css'
+import styles from './index.module.css'
 import humidityIcon from '../../assets/humidity.svg'
 import precipIcon from '../../assets/precip.svg'
 import speedIcon from '../../assets/windSpeed.svg'
@@ -19,7 +19,7 @@ export default (props) => {
         name: "风速",
         data: `${windSpeed} km/h`
     }]
-    return <div className="minor-container">
+    return <div className={styles["minor-container"]}>
         {
             data.map((item, index) => {
                 return <Item key={index} {...item} />

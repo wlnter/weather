@@ -1,4 +1,4 @@
-import './index.css'
+import styles from './index.module.css'
 import { getIcon, getTime } from '../../util'
 import { useNavigate } from "react-router-dom";
 import Temperature from '../temperature'
@@ -12,36 +12,36 @@ export default (props) => {
     const navigate = useNavigate();
 
     return (
-      <div className="major-box">
-        <img
-          src={getIcon(text)}
-          className="major-image"
-        />
-        <div className="major-location">{`${city}, ${province}`}</div>
-        <div className="major-content">
-          <div className="major-info">
-            <Temperature num={temp} size={'medium'} />
-            <div className="major-time">{getTime()}</div>
+      <div className={styles["major-box"]}>
+        <img src={getIcon(text)} className={styles["major-image"]} />
+        <div className={styles["major-location"]}>{`${city}, ${province}`}</div>
+        <div className={styles["major-content"]}>
+          <div className={styles["major-info"]}>
+            <Temperature num={temp} size={"medium"} />
+            <div className={styles["major-time"]}>{getTime()}</div>
           </div>
-          <div className="major-tag">
+          <div className={styles["major-tag"]}>
             {tag.map((item, index) => {
               const { name, width, color } = item;
               if (name) {
                 return (
                   <div
                     key={index}
-                    className="major-tag-item"
+                    className={styles["major-tag-item"]}
                     style={{ width, backgroundColor: color }}
                   >
-                    <div className="major-tag-text">{name}</div>
+                    <div className={styles["major-tag-text"]}>{name}</div>
                   </div>
                 );
               }
             })}
           </div>
         </div>
-        <div className="major-button">
-          <div onClick={() => navigate("/forecast")} className="major-button-text">
+        <div className={styles["major-button"]}>
+          <div
+            onClick={() => navigate("/forecast")}
+            className={styles["major-button-text"]}
+          >
             详情
           </div>
         </div>

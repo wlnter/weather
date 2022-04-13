@@ -1,9 +1,11 @@
-import './index.css'
+import styles from './index.module.css'
 export default (props) => {
     const { icon, name, data } = props
-    return <div className="minor-item">
-        <img src={icon} className="minor-item-icon" />
-        <div className="minor-item-text">{name}</div>
-        <div className="minor-item-data">{`${data}`}</div>
-    </div>
+    return (
+      <div className={styles["minor-item"]}>
+        <img src={icon} className={styles["minor-item-icon"]} />
+        <div className={styles["minor-item-text"]}>{name}</div>
+        <div className={styles["minor-item-data"]}>{`${data}`}</div>
+      </div>
+    );
 }
