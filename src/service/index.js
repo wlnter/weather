@@ -1,5 +1,7 @@
 import { WEB_API_KEY, AMAP_API_KEY } from "../const";
+import { getDay, getIcon } from '../util'
 
+let cache = null
 export const getLocation = async () => {
     try{
         let amapResponse = await fetch(`https://restapi.amap.com/v3/ip?output=json&key=${AMAP_API_KEY}`)
@@ -11,7 +13,13 @@ export const getLocation = async () => {
             const { location, code } = cityRes
             if(code === "200" && location[0]){
                 const {id, adm1, adm2} = location[0]
-                return [id, adm2, adm1]
+                if(cache && cache[0] === id){
+                    return cache
+                }else{
+                    cache = [id, adm2, adm1];
+                    return [id, adm2, adm1];
+                }
+                
             }else{
                 throw new Error('qweather api error')
             }
@@ -42,5 +50,32 @@ export const getWeatherNow = async () => {
 }
 
 export const getForecast24h = async () => {
-    
+
 }
+
+export const getForecast7d = async () => {
+    try{
+        let location = await getLocation();
+        const [id, province, city] = location;
+        const response = await fetch(
+            `https://api.qweather.com/v7/weather/7d?location=${id}&key=${WEB_API_KEY}`
+        );
+        const res = await response.json();
+        if(res.code === '200'){
+            const data = res.daily
+            const ret = data.map((item, index) => {
+                const { fxDate, tempMin, tempMax, iconDay, iconNight, textDay } = item;
+                return {
+                  date: getDay(new Date(fxDate)),
+                  range: [tempMax, tempMin],
+                  icon: getIcon(textDay)
+                };
+            })
+            return ret
+        }else{
+            throw new Error("qweather api error");
+        }
+    }catch(e){
+
+    }
+};

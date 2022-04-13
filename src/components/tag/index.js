@@ -9,19 +9,19 @@ export default (props) => {
   const data = [
     {
       icon: precipIcon,
-      text: `${precip}%`,
+      text: precip ? `${precip}%` : "-",
       color: "#658ED9",
       backgroundColor: "rgba(101, 142, 217, 0.1)",
     },
     {
       icon: humidityIcon,
-      text: `${humidity}%`,
+      text: humidity ? `${humidity}%` : '-',
       color: "#D86191",
       backgroundColor: "rgba(216, 97, 145, 0.1)",
     },
     {
       icon: speedIcon,
-      text: `${windSpeed} km/h`,
+      text: windSpeed ? `${windSpeed} km/h` : "-",
       color: "#5E4FC1",
       backgroundColor: "rgba(94, 79, 193, 0.1)",
     },

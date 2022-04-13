@@ -6,6 +6,7 @@ import ReactECharts from "echarts-for-react";
 import Temperature from '../components/temperature';
 import TemperatureList from '../components/temperature-list'
 import ForecastList from '../components/forecast-list/';
+import { getIcon } from '../util';
 
 const tempList = [{num: 12, hour: "10am"}, {num: 14, hour: "11am"}, {num: 10, hour: '12am'}]
 const forecastList = [
@@ -87,19 +88,21 @@ export default (props) => {
         src={back}
         className="back-arrow"
       />
-      <img
-        src={"https://s3.bmp.ovh/imgs/2022/04/11/28da5e75730d747f.png"}
+      {text && <img
+        src={getIcon(text)}
         className="weather-icon"
-      />
+      />}
       <div className="location">
         <div className="location-text">{`${city},`}</div>
         <div className="location-text">{province}</div>
       </div>
       <Temperature size="large" num={temp} styles={{ marginLeft: "20px" }} />
-      <TemperatureList data={tempList} />
       <Tags weather={props.weather} />
+      <div style={{ width: "20px", height: "20px" }} />
+      <TemperatureList data={tempList} />
       {/* <ReactECharts option={option} /> */}
-      <ForecastList data={forecastList} />
+      <div style={{ width: "20px", height: "20px" }} />
+      <ForecastList data={props.forecast} />
     </div>
   );
 }
