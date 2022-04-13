@@ -60,6 +60,7 @@ export const getForecast24h = async (location) => {
             num: temp,
           };
         });
+        console.log(ret)
         return ret
       } else {
         throw new Error("qweather api error");
