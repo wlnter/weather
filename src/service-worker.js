@@ -97,13 +97,3 @@ registerRoute(
     ],
   })
 );
-
-registerRoute(
-  new RegExp('.*\.html'),
-  new StaleWhileRevalidate()
-);
-
-registerRoute(
-  new RegExp('.*\.(?:js|css)'),
-  new CacheFirst()
-);
