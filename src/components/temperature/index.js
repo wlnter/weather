@@ -1,17 +1,19 @@
-import Large from './large'
-import Small from './small'
-import Medium from './medium'
-import Mini from './mini'
+import style from './index.module.css'
 
 export default (props) => {
-  switch (props.size) {
-    case "large":
-      return <Large {...props} />;
-    case "medium":
-      return <Medium {...props} />;
-    case "small":
-      return <Small {...props} />;
-    case "mini":
-      return <Mini {...props} />;
+  const { num, styles, size } = props;
+  if (isNaN(Number(num))) {
+    return (
+      <div className={style[`${size}-container`]} style={styles}>
+        <div className={style[`${size}-num`]}>{" ".replace(/ /g, "\u00a0")}</div>
+        <div className={style[`${size}-unit`]}>{" ".replace(/ /g, "\u00a0")}</div>
+      </div>
+    );
   }
+  return (
+    <div className={style[`${size}-container`]} style={styles}>
+      <div className={style[`${size}-num`]}>{num}</div>
+      <div className={style[`${size}-unit`]}>°C</div>
+    </div>
+  );
 };
