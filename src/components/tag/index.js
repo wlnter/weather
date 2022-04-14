@@ -9,7 +9,7 @@ export default (props) => {
   const data = [
     {
       icon: precipIcon,
-      text: `${precip || "--"}%`,
+      text: `${precip || "--"}mm`,
       color: "#658ED9",
       backgroundColor: "rgba(101, 142, 217, 0.1)",
     },

@@ -9,7 +9,7 @@ export default (props) => {
     const data = [{
         icon: precipIcon,
         name: "降水量",
-        data: `${precip}%`
+        data: `${precip}mm`
     },{
         icon: humidityIcon,
         name: "湿度",
