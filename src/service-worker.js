@@ -81,25 +81,25 @@ registerRoute(
 );
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/24h") > -1,
-  new StaleWhileRevalidate({
+  new CacheFirst({
     cacheName: "24h",
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 }),
+      new ExpirationPlugin({ maxAgeSeconds: 60 * 60, maxEntries: 50 }),
     ],
   })
 );
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/7d") > -1,
-  new StaleWhileRevalidate({
+  new CacheFirst({
     cacheName: "7d",
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
+      new ExpirationPlugin({ maxAgeSeconds: 1 * 24 * 60 * 60, maxEntries: 50 }),
     ],
   })
 );
 registerRoute(
   ({ request }) => request.url.indexOf("restapi.amap.com/v3/ip") > -1,
-  new StaleWhileRevalidate({
+  new CacheFirst({
     cacheName: "amap",
     plugins: [
       new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
@@ -109,7 +109,7 @@ registerRoute(
 registerRoute(
   ({ request }) =>
     request.url.indexOf("geoapi.qweather.com/v2/city/lookup") > -1,
-  new StaleWhileRevalidate({
+  new CacheFirst({
     cacheName: "lookup",
     plugins: [
       new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
