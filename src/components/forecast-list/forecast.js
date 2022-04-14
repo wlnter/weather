@@ -9,6 +9,7 @@ export default (props) => {
       <img className={styles.icon} src={icon} />
       <div className={styles.range}>
         <Temperature size="mini" num={range[0]} />
+        <div style={{flex: 1}} />
         <Temperature
           size="mini"
           num={range[1]}
