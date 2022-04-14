@@ -125,3 +125,10 @@ registerRoute(
     ],
   })
 );
+
+self.addEventListener("fetch", (event) => {
+  const url = event.request.url;
+  if(url.pathname.endsWith(".png")){
+    console.log(url)
+  };
+});
