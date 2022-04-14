@@ -27,29 +27,31 @@ const CustomizedAxisTick = (props) => {
 
 export default (props)=> {
   return (
-    <ResponsiveContainer height={110} width={"100%"}>
-      <AreaChart
-        data={props.data}
-        margin={{
-          top: 5,
-          right: 0,
-          left: 0,
-          bottom: 5,
-        }}
-      >
-        <Area
-          type="monotone"
-          dataKey="num"
-          stroke="#E9C939"
-          fill="rgba(233, 201, 57, 0.25)"
-        />
-        <XAxis
-          dataKey="hour"
-          tick={<CustomizedAxisTick />}
-          axisLine={false}
-          tickLine={false}
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+    <div style={{width: "100%", height: '110'}}>
+      <ResponsiveContainer>
+        <AreaChart
+          data={props.data}
+          margin={{
+            top: 5,
+            right: 0,
+            left: 0,
+            bottom: 5,
+          }}
+        >
+          <Area
+            type="monotone"
+            dataKey="num"
+            stroke="#E9C939"
+            fill="rgba(233, 201, 57, 0.25)"
+          />
+          <XAxis
+            dataKey="hour"
+            tick={<CustomizedAxisTick />}
+            axisLine={false}
+            tickLine={false}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
