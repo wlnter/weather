@@ -12,9 +12,9 @@ import AreaChart from '../components/area-chart';
 const tempList = [{num: 12, hour: "10am"}, {num: 14, hour: "11am"}, {num: 10, hour: '12am'}]
                 
 export default (props) => {
-  const { location, weather, hourForecast = [], dayForecast } = props
-  const [id, city, province] = location
-  const { temp, text, windDir, windSpeed, humidity, precip } = weather
+  const { location, weather, hourForecast = [], dayForecast = [] } = props
+  const [id, city, province] = location || {}
+  const { temp, text, windDir, windSpeed, humidity, precip } = weather || {}
 
   const navigate = useNavigate();
   return (
