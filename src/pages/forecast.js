@@ -2,7 +2,6 @@ import styles from './forecast.module.css'
 import back from '../assets/back-arrow.svg'
 import { useNavigate } from "react-router-dom";
 import Tags from '../components/tag'
-import ReactECharts from "echarts-for-react";
 import Temperature from '../components/temperature';
 import TemperatureList from '../components/temperature-list'
 import ForecastList from '../components/forecast-list/';
@@ -21,7 +20,7 @@ export default (props) => {
     <div className={styles["forecast-app"]}>
       <img
         onClick={() => {
-          navigate(-1);
+          navigate("/weather/");
         }}
         src={back}
         className={styles["back-arrow"]}
