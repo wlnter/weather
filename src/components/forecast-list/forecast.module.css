@@ -12,12 +12,12 @@
   font-weight: 700;
   font-size: 18px;
   color: #332821;
-  width: 60px;
+  width: 68px;
 }
 .range {
   display: flex;
   flex-direction: row;
-  width: 60px;
+  width: 68px;
   justify-content: space-between;
 }
 .icon {

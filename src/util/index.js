@@ -9,7 +9,7 @@ export const getHour = (now) => {
     let hour = now.getHours();
 
 
-    let ampm = (hour >= 12 || hour == 0) ? "pm" : "am";
+    let ampm = (hour >= 12 || hour == 0 || hour == 24) ? "pm" : "am";
     hour = hour % 12;
     hour = hour ? hour : 12;
 

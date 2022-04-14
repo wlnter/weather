@@ -16,3 +16,28 @@ code {
   font-family: 'Alegreya Sans';
   src: url('./assets/AlegreyaSans-Bold-4.ttf');
 }
+
+@font-face {
+  font-family: "iconfont";
+  src: url('./assets/iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-precip:before {
+  content: "\e601";
+}
+
+.icon-windSpeed:before {
+  content: "\e602";
+}
+
+.icon-humidity:before {
+  content: "\e603";
+}

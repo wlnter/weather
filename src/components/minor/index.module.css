@@ -16,9 +16,9 @@
     margin-bottom: 10px;
 }
 .minor-item-icon {
-    width: 24px;
-    height: 24px;
-    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
     margin-right: 10px;
 }
 .minor-item-text {

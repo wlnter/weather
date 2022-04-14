@@ -8,9 +8,9 @@
   align-items: center;
 }
 .forecast-tag-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 5px
+  margin-right: 5px;
+  font-size: 18px;
+  font-weight: 700;
 }
 .forecast-tag-text {
   font-family: 'Alegreya Sans';
