@@ -18,7 +18,9 @@ export default (props) => {
         <div className={styles["major-content"]}>
           <div className={styles["major-info"]}>
             <Temperature num={temp} size={"medium"} />
-            <div className={styles["major-time"]}>{`${getDay()}, ${getHour()}`}</div>
+            <div
+              className={styles["major-time"]}
+            >{`${getDay()}, ${getHour()}`}</div>
           </div>
           <div className={styles["major-tag"]}>
             {tag.map((item, index) => {
@@ -37,13 +39,11 @@ export default (props) => {
             })}
           </div>
         </div>
-        <div className={styles["major-button"]}>
-          <div
-            onClick={() => navigate("/weather/forecast")}
-            className={styles["major-button-text"]}
-          >
-            详情
-          </div>
+        <div
+          onClick={() => navigate("/weather/forecast")}
+          className={styles["major-button"]}
+        >
+          <div className={styles["major-button-text"]}>详情</div>
         </div>
       </div>
     );
