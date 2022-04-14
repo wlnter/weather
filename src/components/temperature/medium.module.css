@@ -1,0 +1,18 @@
+.medium-num {
+  font-size: 64px;
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight:bold;
+}
+.medium-unit {
+  font-size: 14px;
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight:bold;
+  margin-top: 22px
+}
+.medium-container {
+  color:#332821;
+  display: flex;
+  flex-direction: row;
+}

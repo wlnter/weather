@@ -6,11 +6,14 @@ export const getDay = (now) => {
 }
 export const getHour = (now) => {
     now = now || new Date();
-    const day = getDay(now);
-    const hour = now.getHours();
-    return `${hour <= 12 ? hour : hour - 12} ${
-      hour <= 12 ? "am" : "pm"
-    }`;
+    let hour = now.getHours();
+
+
+    let ampm = (hour >= 12 || hour == 0) ? "pm" : "am";
+    hour = hour % 12;
+    hour = hour ? hour : 12;
+
+    return `${hour} ${ampm}`;
 }
 
 const weatherArr = ["晴", "云", "风", "雨", "雪", "雷"];
