@@ -39,7 +39,7 @@ export default (props) => {
         </div>
         <div className={styles["major-button"]}>
           <div
-            onClick={() => navigate("/forecast")}
+            onClick={() => navigate("/weather/forecast")}
             className={styles["major-button-text"]}
           >
             详情

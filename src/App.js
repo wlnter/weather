@@ -33,14 +33,14 @@ export default () => {
   }, [])
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path="*"
           element={<Home location={location} weather={weather} />}
         />
         <Route
-          path="/forecast"
+          path="/weather/forecast"
           element={
             <Forecast
               location={location}
@@ -51,6 +51,6 @@ export default () => {
           }
         />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
