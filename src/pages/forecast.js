@@ -20,7 +20,7 @@ export default (props) => {
     <div className={styles["forecast-app"]}>
       <img
         onClick={() => {
-          navigate("/weather/");
+          navigate(-1);
         }}
         src={back}
         className={styles["back-arrow"]}
