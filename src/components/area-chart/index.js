@@ -27,7 +27,7 @@ const CustomizedAxisTick = (props) => {
 
 export default (props)=> {
   return (
-    <div style={{width: "100%", height: '110'}}>
+    <div style={{width: "100%", height: '110px'}}>
       <ResponsiveContainer>
         <AreaChart
           data={props.data}
