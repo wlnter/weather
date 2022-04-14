@@ -116,3 +116,12 @@ registerRoute(
     ],
   })
 );
+registerRoute(
+  ({ request }) => request.url.indexOf("gw.alicdn.com") > -1,
+  new StaleWhileRevalidate({
+    cacheName: "alicdn",
+    plugins: [
+      new ExpirationPlugin({ maxEntries: 50 }),
+    ],
+  })
+);
