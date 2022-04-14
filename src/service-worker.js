@@ -75,26 +75,35 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
-
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/now") > -1,
   new NetworkFirst()
 );
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/24h") > -1,
-  new CacheFirst({
-    cacheName: '24h',
+  new StaleWhileRevalidate({
+    cacheName: "24h",
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 })
+      new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60, maxEntries: 50 }),
     ],
   })
 );
 registerRoute(
   ({ request }) => request.url.indexOf("api.qweather.com/v7/weather/7d") > -1,
-  new CacheFirst({
-    cacheName: '7d',
+  new StaleWhileRevalidate({
+    cacheName: "7d",
     plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 })
+      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
     ],
   })
+);
+
+registerRoute(
+  new RegExp('.*\.html'),
+  new StaleWhileRevalidate()
+);
+
+registerRoute(
+  new RegExp('.*\.(?:js|css)'),
+  new CacheFirst()
 );
