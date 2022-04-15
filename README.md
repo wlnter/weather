@@ -12,6 +12,8 @@
 ### 设计模式
 ### 适配
 ### lighthouse
+![image](https://user-images.githubusercontent.com/52703093/163529425-a9403c77-ee50-4266-b66a-815b2098e665.png)
+![image](https://user-images.githubusercontent.com/52703093/163529513-8808effa-495d-4c46-bd6a-f9f49f3808b1.png)
 
 ### 其他
 - react18-bug
