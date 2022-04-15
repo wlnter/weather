@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/home.js'
-import Forecast from './pages/forecast.js'
+import React, { useEffect, useState, Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import {
   getForecast7d,
   getLocation,
   getWeatherNow,
   getForecast24h,
 } from "./service";
+const Home = lazy(() => import("./pages/home.js"));
+const Forecast = lazy(() => import("./pages/forecast.js"));
 
 export default () => {
   const [ location, setLocation ] = useState([])
@@ -31,26 +32,27 @@ export default () => {
           .catch((err) => {});
       })
   }, [])
-
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="*"
-          element={<Home location={location} weather={weather} />}
-        />
-        <Route
-          path="/weather/forecast"
-          element={
-            <Forecast
-              location={location}
-              weather={weather}
-              dayForecast={dayForecast}
-              hourForecast={hourForecast}
-            />
-          }
-        />
-      </Routes>
+      <Suspense fallback={<div className="wrap"><div className="loader" /></div>}>
+        <Routes>
+          <Route
+            path="*"
+            element={<Home location={location} weather={weather} />}
+          />
+          <Route
+            path="/weather/forecast"
+            element={
+              <Forecast
+                location={location}
+                weather={weather}
+                dayForecast={dayForecast}
+                hourForecast={hourForecast}
+              />
+            }
+          />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
