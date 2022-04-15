@@ -585,7 +585,11 @@ module.exports = function (webpackEnv) {
             template: paths.appHtml,
           },
           {
-            preconnect: ["https://gw.alicdn.com", "https://restapi.amap.com"],
+            preconnect: [
+              "https://gw.alicdn.com",
+              "https://restapi.amap.com",
+              "https://api.qweather.com",
+            ],
           },
           isEnvProduction
             ? {

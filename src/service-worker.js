@@ -99,22 +99,12 @@ registerRoute(
 );
 registerRoute(
   ({ request }) => request.url.indexOf("restapi.amap.com/v3/ip") > -1,
-  new CacheFirst({
-    cacheName: "amap",
-    plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
-    ],
-  })
+  new StaleWhileRevalidate({cacheName: "amap"})
 );
 registerRoute(
   ({ request }) =>
     request.url.indexOf("geoapi.qweather.com/v2/city/lookup") > -1,
-  new CacheFirst({
-    cacheName: "lookup",
-    plugins: [
-      new ExpirationPlugin({ maxAgeSeconds: 7 * 24 * 60 * 60, maxEntries: 50 }),
-    ],
-  })
+  new StaleWhileRevalidate({ cacheName: "lookup" })
 );
 registerRoute(
   ({ request }) => request.url.indexOf("gw.alicdn.com") > -1,
