@@ -8,8 +8,6 @@ import ForecastList from '../components/forecast-list/';
 import { getIcon } from '../util';
 import AreaChart from '../components/area-chart';
 
-const tempList = [{num: 12, hour: "10am"}, {num: 14, hour: "11am"}, {num: 10, hour: '12am'}]
-                
 export default (props) => {
   const { location, weather, hourForecast = [], dayForecast = [] } = props
   const [id, city, province] = location || {}
