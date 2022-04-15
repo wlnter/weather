@@ -39,7 +39,8 @@ export const getIcon = (text) => {
         return ""
     }
   let index = -1;
-  let iconArr = new Date().getHours() >= 18 ? nightIcon : dayIcon;
+  const hour = new Date().getHours()
+  let iconArr = (hour >= 18 || hour <= 6) ? nightIcon : dayIcon;
   weatherArr.forEach((item, i) => {
     if (text.indexOf(item) > -1) {
       index = i;
