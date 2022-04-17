@@ -7,7 +7,6 @@ export default (props) => {
     <div className={styles.container}>
       <div className={styles.date}>{date}</div>
       <i className={`qi-${icon}-fill ${styles.icon}`}></i>
-      {/* <img className={styles.icon} src={icon} /> */}
       <div className={styles.range}>
         <Temperature size="mini" num={range[0]} />
         <div style={{ flex: 1 }} />
