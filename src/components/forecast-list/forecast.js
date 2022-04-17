@@ -3,10 +3,18 @@ import Temperature from '../temperature'
 
 export default (props) => {
   const { date, icon, range } = props
+  
+  const image = () => {
+    try{
+      return require(`../../assets/weatherIcon/${icon}.png`)
+    }catch(e){
+      return require(`../../assets/weatherIcon/999.png`)
+    }
+  }
   return (
     <div className={styles.container}>
       <div className={styles.date}>{date}</div>
-      <img src={require(`../../assets/weatherIcon/${icon}.png`)} className={styles.icon} />
+      <img src={image()} className={styles.icon} />
       <div className={styles.range}>
         <Temperature size="mini" num={range[0]} />
         <div style={{ flex: 1 }} />
