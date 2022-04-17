@@ -27,7 +27,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPreconnectPlugin = require('html-webpack-preconnect-plugin');
 
-
+const FontPreloadPlugin = require("webpack-font-preload-plugin");
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -610,6 +610,7 @@ module.exports = function (webpackEnv) {
       ),
       // enabled preconnect plugin
       new HtmlWebpackPreconnectPlugin(),
+      new FontPreloadPlugin(),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
