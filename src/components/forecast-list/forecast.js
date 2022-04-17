@@ -6,7 +6,7 @@ export default (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.date}>{date}</div>
-      <i className={`qi-${icon}-fill ${styles.icon}`}></i>
+      <img src={require(`../../assets/weatherIcon/${icon}.png`)} className={styles.icon} />
       <div className={styles.range}>
         <Temperature size="mini" num={range[0]} />
         <div style={{ flex: 1 }} />

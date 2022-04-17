@@ -28,9 +28,8 @@ const CustomizedAxisTick = (props) => {
 export default (props)=> {
   return (
     <div style={{width: "100%", height: '110px', position: 'relative'}}>
-      <div style={{position: 'absolute', left: '20px', fontFamily:"Alegreya Sans", fontWeight: 500, fontSize: '14px'}}>Today</div>
+      <div style={{position: 'absolute', left: '20px', fontFamily:"Alegreya Sans", fontWeight: 500, fontSize: '14px', color: "#332821"}}>24 Hours</div>
       <ResponsiveContainer>
-        
         <AreaChart
           data={props.data}
           margin={{
