@@ -26,7 +26,6 @@ const ForkTsCheckerWebpackPlugin =
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPreconnectPlugin = require('html-webpack-preconnect-plugin');
-const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin")
 
 const FontPreloadPlugin = require("webpack-font-preload-plugin");
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
@@ -767,8 +766,7 @@ module.exports = function (webpackEnv) {
               }),
             },
           },
-        }),
-      new ImageminWebpWebpackPlugin(),
+        })
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
