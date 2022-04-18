@@ -57,7 +57,7 @@ export const getForecast24h = async (location) => {
           const { fxTime, temp } = item;
           return {
             hour: getHour(new Date(fxTime)),
-            num: temp,
+            num: Number(temp),
           };
         });
         return ret
