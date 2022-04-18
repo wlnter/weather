@@ -5,8 +5,8 @@ import Tags from '../components/tag'
 import Temperature from '../components/temperature';
 import TemperatureList from '../components/temperature-list'
 import ForecastList from '../components/forecast-list/';
-import { getIcon } from '../util';
 import AreaChart from '../components/area-chart';
+import WeatherImage from '../components/weather-image';
 
 export default (props) => {
   const { location, weather, hourForecast = [], dayForecast = [] } = props
@@ -23,7 +23,7 @@ export default (props) => {
         src={back}
         className={styles["back-arrow"]}
       />
-      {text && <img src={getIcon(text)} className={styles["weather-icon"]} />}
+      <div className={styles["weather-icon"]}><WeatherImage text={text} /></div>
       <div className={styles.location}>
         <div className={styles["location-text"]}>{`${city || "--"},`}</div>
         <div className={styles["location-text"]}>{province || "--"}</div>

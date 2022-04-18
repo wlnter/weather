@@ -26,6 +26,7 @@ const ForkTsCheckerWebpackPlugin =
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPreconnectPlugin = require('html-webpack-preconnect-plugin');
+const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin")
 
 const FontPreloadPlugin = require("webpack-font-preload-plugin");
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
@@ -611,6 +612,7 @@ module.exports = function (webpackEnv) {
       // enabled preconnect plugin
       new HtmlWebpackPreconnectPlugin(),
       new FontPreloadPlugin(),
+      new ImageminWebpWebpackPlugin(),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358

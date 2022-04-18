@@ -156,6 +156,7 @@
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "html-webpack-preconnect-plugin": "^1.2.1",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
     "postcss-px-to-viewport": "^1.1.1",
     "webpack-font-preload-plugin": "^1.5.0"
   }

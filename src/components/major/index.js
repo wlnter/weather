@@ -1,7 +1,8 @@
 import styles from './index.module.css'
-import { getIcon, getHour, getDay } from '../../util'
+import { getHour, getDay } from '../../util'
 import { useNavigate } from "react-router-dom";
 import Temperature from '../temperature'
+import WeatherImage from '../weather-image'
 
 export default (props) => {
     const { location, weather } = props
@@ -13,7 +14,9 @@ export default (props) => {
 
     return (
       <div className={styles["major-box"]}>
-        {text && <img src={getIcon(text)} className={styles["major-image"]} />}
+        <div className={styles["major-image"]}>
+          <WeatherImage text={text} />
+        </div>
         <div className={styles["major-location"]}>{`${city}, ${province}`}</div>
         <div className={styles["major-content"]}>
           <div className={styles["major-info"]}>
