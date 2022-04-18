@@ -82,8 +82,7 @@ export const getForecast7d = async (location) => {
         return {
           date: getDay(new Date(fxDate)),
           range: [tempMax, tempMin],
-          // icon: getIcon(textDay),
-          icon: new Date().getHours() >= 18 ? iconNight : iconDay
+          icon: iconDay
         };
       });
       return ret;
