@@ -7,8 +7,6 @@ export const getDay = (now) => {
 export const getHour = (now) => {
     now = now || new Date();
     let hour = now.getHours();
-
-
     let ampm = (hour <= 12 && hour >= 1) ? "am" : "pm";
     hour = hour % 12;
     hour = hour ? hour : 12;

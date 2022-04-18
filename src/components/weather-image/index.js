@@ -22,7 +22,7 @@ export default (props) => {
     <img
       src={require(`../../assets/weatherImage/${
         isNight() ? "night" : "day"
-      }-${getPath(text)}.png`)}
+      }-${getPath(text)}.webp`)}
       style={{ width: "100%", height: "100%" }}
     />
   );

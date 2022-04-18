@@ -586,10 +586,7 @@ module.exports = function (webpackEnv) {
             template: paths.appHtml,
           },
           {
-            preconnect: [
-              "https://gw.alicdn.com",
-              "https://restapi.amap.com",
-            ],
+            preconnect: ["https://gw.alicdn.com", "https://restapi.amap.com"],
           },
           isEnvProduction
             ? {
@@ -612,7 +609,7 @@ module.exports = function (webpackEnv) {
       // enabled preconnect plugin
       new HtmlWebpackPreconnectPlugin(),
       new FontPreloadPlugin(),
-      new ImageminWebpWebpackPlugin(),
+
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
@@ -771,6 +768,7 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new ImageminWebpWebpackPlugin(),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
