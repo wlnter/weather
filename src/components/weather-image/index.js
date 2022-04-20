@@ -2,7 +2,7 @@ export default (props) => {
   const { icon } = props
   let src = null
   try{
-    src = require(`../../assets/icon/128/${icon}.png`)
+    src = require(`../../assets/icon/128/${icon}.webp`)
   }catch(e){
   }
 

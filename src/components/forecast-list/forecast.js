@@ -6,9 +6,9 @@ export default (props) => {
   
   const image = () => {
     try{
-      return require(`../../assets/icon/64/${icon}.png`)
+      return require(`../../assets/icon/64/${icon}.webp`)
     }catch(e){
-      return require(`../../assets/icon/64/999.png`)
+      return require(`../../assets/icon/64/999.webp`)
     }
   }
   return (
