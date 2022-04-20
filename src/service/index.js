@@ -34,9 +34,9 @@ export const getWeatherNow = async (location) => {
         );
         const res = await response.json()
         const { code, now } = res
-        const { temp, text, windDir, windSpeed, humidity, precip } = now
+        const { temp, text, windDir, windSpeed, humidity, precip, icon } = now
         if(code === '200'){
-            return { temp, text, windDir, windSpeed, humidity, precip }
+            return { temp, text, windDir, windSpeed, humidity, precip, icon }
         }else{
             throw new Error('qweather api error')
         }

@@ -3,8 +3,8 @@ import imagemin from "imagemin";
 import imageminWebp from "imagemin-webp";
 
 (async () => {
-  const files = await imagemin(["./src/assets/weatherImageOrigin/*.png"], {
-    destination: "./src/assets/weatherImage/",
+  const files = await imagemin(["./src/assets/iconsOrigin/*.png"], {
+    destination: "./src/assets/icons/",
     plugins: [imageminWebp({ quality: 50 })],
   });
 

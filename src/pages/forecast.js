@@ -11,7 +11,7 @@ import WeatherImage from '../components/weather-image';
 export default (props) => {
   const { location, weather, hourForecast = [], dayForecast = [] } = props
   const [id, city, province] = location || {}
-  const { temp, text, windDir, windSpeed, humidity, precip } = weather || {}
+  const { temp, text, icon, windDir, windSpeed, humidity, precip } = weather || {}
 
   const navigate = useNavigate();
   return (
@@ -23,7 +23,7 @@ export default (props) => {
         src={back}
         className={styles["back-arrow"]}
       />
-      <div className={styles["weather-icon"]}><WeatherImage text={text} /></div>
+      <div className={styles["weather-icon"]}><WeatherImage icon={icon} /></div>
       <div className={styles.location}>
         <div className={styles["location-text"]}>{`${city || "--"},`}</div>
         <div className={styles["location-text"]}>{province || "--"}</div>

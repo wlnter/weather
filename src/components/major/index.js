@@ -7,7 +7,7 @@ import WeatherImage from '../weather-image'
 export default (props) => {
     const { location, weather } = props
     const [id, city = '--', province = "--" ] = location || []
-    const { temp, text = "", windDir = "" } = weather || {}
+    const { temp, text = "", windDir = "", icon } = weather || {}
     const tag = [{name: windDir, color: `rgba(212, 66, 111, 0.5)`, width: `72px`}, {name: text, color: `rgba(106, 117, 186, 0.5)`, width: `50px`}]
     
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default (props) => {
     return (
       <div className={styles["major-box"]}>
         <div className={styles["major-image"]}>
-          <WeatherImage text={text} />
+          <WeatherImage icon={icon} />
         </div>
         <div className={styles["major-location"]}>{`${city}, ${province}`}</div>
         <div className={styles["major-content"]}>
